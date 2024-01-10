@@ -3,177 +3,171 @@ namespace Teste
 {
     partial class Form1
     {
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dataGridViewContatos;
+        private System.Windows.Forms.TextBox textBoxCadastroNome;
+        private System.Windows.Forms.TextBox textBoxCadastroEmail;
+        private System.Windows.Forms.Label labelCadastro;
+        private System.Windows.Forms.Label labelCadastroNome;
+        private System.Windows.Forms.Label labelCadastroEmail;
+        private System.Windows.Forms.Label labelListaContatos;
+        private System.Windows.Forms.Button buttonAdicionar;
+        private System.Windows.Forms.Button buttonEditar;
+        private System.Windows.Forms.Button buttonExcluir;
+        private System.Windows.Forms.Button buttonFiltrar;
+
+        private System.Windows.Forms.Label labelLog;
 
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dataGridViewContatos = new System.Windows.Forms.DataGridView();
+            this.textBoxCadastroNome = new System.Windows.Forms.TextBox();
+            this.textBoxCadastroEmail = new System.Windows.Forms.TextBox();
+            this.buttonAdicionar = new System.Windows.Forms.Button();
+            this.labelListaContatos = new System.Windows.Forms.Label();
+            this.labelCadastroNome = new System.Windows.Forms.Label();
+            this.labelCadastroEmail = new System.Windows.Forms.Label();
+            this.buttonEditar = new System.Windows.Forms.Button();
+            this.buttonExcluir = new System.Windows.Forms.Button();
+            this.buttonFiltrar = new System.Windows.Forms.Button();
+            this.labelLog = new System.Windows.Forms.Label();
+            this.labelCadastro = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContatos)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewContatos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(174, 152);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(422, 178);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridViewContatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewContatos.Location = new System.Drawing.Point(174, 152);
+            this.dataGridViewContatos.Name = "dataGridViewContatos";
+            this.dataGridViewContatos.Size = new System.Drawing.Size(422, 178);
+            this.dataGridViewContatos.TabIndex = 0;
             // 
-            // textBox1
+            // textBoxCadastroNome
             // 
-            this.textBox1.Location = new System.Drawing.Point(213, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(279, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBoxCadastroNome.Location = new System.Drawing.Point(213, 25);
+            this.textBoxCadastroNome.Name = "textBoxCadastroNome";
+            this.textBoxCadastroNome.Size = new System.Drawing.Size(279, 20);
+            this.textBoxCadastroNome.TabIndex = 1;
+            this.textBoxCadastroNome.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // label1
+            // textBoxCadastroEmail
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(171, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Lista de contatos";
+            this.textBoxCadastroEmail.Location = new System.Drawing.Point(213, 47);
+            this.textBoxCadastroEmail.Name = "textBoxCadastroEmail";
+            this.textBoxCadastroEmail.Size = new System.Drawing.Size(279, 20);
+            this.textBoxCadastroEmail.TabIndex = 7;
+            this.textBoxCadastroEmail.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // button1
+            // buttonAdicionar
             // 
-            this.button1.Location = new System.Drawing.Point(174, 114);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Adicionar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonAdicionar.Location = new System.Drawing.Point(174, 73);
+            this.buttonAdicionar.Name = "buttonAdicionar";
+            this.buttonAdicionar.Size = new System.Drawing.Size(75, 23);
+            this.buttonAdicionar.TabIndex = 3;
+            this.buttonAdicionar.Text = "Adicionar";
+            this.buttonAdicionar.UseVisualStyleBackColor = true;
+            this.buttonAdicionar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label2
+            // labelListaContatos
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(174, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Nome";
+            this.labelListaContatos.AutoSize = true;
+            this.labelListaContatos.Location = new System.Drawing.Point(174, 136);
+            this.labelListaContatos.Name = "labelListaContatos";
+            this.labelListaContatos.Size = new System.Drawing.Size(88, 13);
+            this.labelListaContatos.TabIndex = 2;
+            this.labelListaContatos.Text = "Lista de contatos";
             // 
-            // label3
+            // labelCadastroNome
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(174, 47);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "E-mail";
+            this.labelCadastroNome.AutoSize = true;
+            this.labelCadastroNome.Location = new System.Drawing.Point(174, 28);
+            this.labelCadastroNome.Name = "labelCadastroNome";
+            this.labelCadastroNome.Size = new System.Drawing.Size(35, 13);
+            this.labelCadastroNome.TabIndex = 4;
+            this.labelCadastroNome.Text = "Nome";
             // 
-            // label4
+            // labelCadastroEmail
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(177, 69);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Data";
+            this.labelCadastroEmail.AutoSize = true;
+            this.labelCadastroEmail.Location = new System.Drawing.Point(174, 50);
+            this.labelCadastroEmail.Name = "labelCadastroEmail";
+            this.labelCadastroEmail.Size = new System.Drawing.Size(35, 13);
+            this.labelCadastroEmail.TabIndex = 5;
+            this.labelCadastroEmail.Text = "E-mail";
             // 
-            // textBox2
+            // buttonEditar
             // 
-            this.textBox2.Location = new System.Drawing.Point(213, 47);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(279, 20);
-            this.textBox2.TabIndex = 7;
+            this.buttonEditar.Location = new System.Drawing.Point(602, 181);
+            this.buttonEditar.Name = "buttonEditar";
+            this.buttonEditar.Size = new System.Drawing.Size(75, 23);
+            this.buttonEditar.TabIndex = 9;
+            this.buttonEditar.Text = "Editar";
+            this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textBox3
+            // buttonExcluir
             // 
-            this.textBox3.Location = new System.Drawing.Point(213, 69);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(117, 20);
-            this.textBox3.TabIndex = 8;
+            this.buttonExcluir.Location = new System.Drawing.Point(174, 336);
+            this.buttonExcluir.Name = "buttonExcluir";
+            this.buttonExcluir.Size = new System.Drawing.Size(75, 23);
+            this.buttonExcluir.TabIndex = 10;
+            this.buttonExcluir.Text = "Excluir";
+            this.buttonExcluir.UseVisualStyleBackColor = true;
+            this.buttonExcluir.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // buttonFiltrar
             // 
-            this.button2.Location = new System.Drawing.Point(255, 114);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Editar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonFiltrar.Location = new System.Drawing.Point(93, 152);
+            this.buttonFiltrar.Name = "buttonFiltrar";
+            this.buttonFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.buttonFiltrar.TabIndex = 11;
+            this.buttonFiltrar.Text = "Filtrar";
+            this.buttonFiltrar.UseVisualStyleBackColor = true;
+            this.buttonFiltrar.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button3
+            // labelLog
             // 
-            this.button3.Location = new System.Drawing.Point(336, 114);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Excluir";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.labelLog.AutoSize = true;
+            this.labelLog.Location = new System.Drawing.Point(376, 362);
+            this.labelLog.Name = "labelLog";
+            this.labelLog.Size = new System.Drawing.Size(0, 13);
+            this.labelLog.TabIndex = 12;
             // 
-            // button4
+            // labelCadastro
             // 
-            this.button4.Location = new System.Drawing.Point(417, 114);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "Filtrar";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(376, 362);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(21, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "log";
+            this.labelCadastro.AutoSize = true;
+            this.labelCadastro.Location = new System.Drawing.Point(171, 9);
+            this.labelCadastro.Name = "labelCadastro";
+            this.labelCadastro.Size = new System.Drawing.Size(52, 13);
+            this.labelCadastro.TabIndex = 13;
+            this.labelCadastro.Text = "Cadastrar";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 450);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.labelCadastro);
+            this.Controls.Add(this.labelLog);
+            this.Controls.Add(this.buttonFiltrar);
+            this.Controls.Add(this.buttonExcluir);
+            this.Controls.Add(this.buttonEditar);
+            this.Controls.Add(this.textBoxCadastroEmail);
+            this.Controls.Add(this.labelCadastroEmail);
+            this.Controls.Add(this.labelCadastroNome);
+            this.Controls.Add(this.buttonAdicionar);
+            this.Controls.Add(this.labelListaContatos);
+            this.Controls.Add(this.textBoxCadastroNome);
+            this.Controls.Add(this.dataGridViewContatos);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContatos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
+
     }
 }
 
