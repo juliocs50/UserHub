@@ -20,6 +20,9 @@ namespace Teste
         private void InitializeComponent()
         {
             this.dataGridViewContatos = new System.Windows.Forms.DataGridView();
+            //
+            dataGridViewContatos.CellContentClick += dataGridViewContatos_CellContentClick;
+
             this.textBoxCadastroNome = new System.Windows.Forms.TextBox();
             this.textBoxCadastroEmail = new System.Windows.Forms.TextBox();
             this.buttonAdicionar = new System.Windows.Forms.Button();
@@ -37,9 +40,9 @@ namespace Teste
             // dataGridViewContatos
             // 
             this.dataGridViewContatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewContatos.Location = new System.Drawing.Point(174, 152);
+            this.dataGridViewContatos.Location = new System.Drawing.Point(72, 152);
             this.dataGridViewContatos.Name = "dataGridViewContatos";
-            this.dataGridViewContatos.Size = new System.Drawing.Size(422, 178);
+            this.dataGridViewContatos.Size = new System.Drawing.Size(717, 178);
             this.dataGridViewContatos.TabIndex = 0;
             // 
             // textBoxCadastroNome
@@ -97,7 +100,7 @@ namespace Teste
             // 
             // buttonEditar
             // 
-            this.buttonEditar.Location = new System.Drawing.Point(602, 181);
+            this.buttonEditar.Location = new System.Drawing.Point(474, 103);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(75, 23);
             this.buttonEditar.TabIndex = 9;
@@ -117,7 +120,7 @@ namespace Teste
             // 
             // buttonFiltrar
             // 
-            this.buttonFiltrar.Location = new System.Drawing.Point(93, 152);
+            this.buttonFiltrar.Location = new System.Drawing.Point(97, 103);
             this.buttonFiltrar.Name = "buttonFiltrar";
             this.buttonFiltrar.Size = new System.Drawing.Size(75, 23);
             this.buttonFiltrar.TabIndex = 11;

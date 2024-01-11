@@ -38,8 +38,12 @@ namespace Teste
 
                     using (SqlDataReader reader = comando.ExecuteReader())
                     {
+                        
                         dataGridViewContatos.Rows.Clear();
-
+                        
+                        AdicionarColuna("Editar");
+                        AdicionarColuna("Excluir");
+                        
                         while (reader.Read())
                         {
                             dataGridViewContatos.Rows.Add(reader["ID"], reader["Nome"], reader["Email"], reader["DataCadastro"]);
@@ -50,6 +54,41 @@ namespace Teste
             catch (Exception ex)
             {
                 labelLog.Text = $"Erro ao carregar contatos: {ex.Message}";
+            }
+        }
+        private void dataGridViewContatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                string columnName = dataGridViewContatos.Columns[e.ColumnIndex].Name;
+
+                if (columnName == "Editar")
+                {
+                    int id = Convert.ToInt32(dataGridViewContatos.Rows[e.RowIndex].Cells["ID"].Value);
+                    string nome = Convert.ToString(dataGridViewContatos.Rows[e.RowIndex].Cells["Nome"].Value);
+                    string email = Convert.ToString(dataGridViewContatos.Rows[e.RowIndex].Cells["Email"].Value);
+                    DateTime dataCadastro = Convert.ToDateTime(dataGridViewContatos.Rows[e.RowIndex].Cells["DataCadastro"].Value);
+
+                    EditarContato(id, nome, email, dataCadastro);
+                }
+                else if (columnName == "Excluir")
+                {
+                    int id = Convert.ToInt32(dataGridViewContatos.Rows[e.RowIndex].Cells["ID"].Value);
+                    ExcluirContato(id);
+                }
+            }
+        }
+
+        private void AdicionarColuna(string nomeBotao)
+        {
+            if (!dataGridViewContatos.Columns.Contains(nomeBotao))
+            {
+                DataGridViewButtonColumn colunaBotao = new DataGridViewButtonColumn();
+                colunaBotao.Name = nomeBotao;
+                colunaBotao.HeaderText = "";
+                colunaBotao.Text = nomeBotao;
+                colunaBotao.UseColumnTextForButtonValue = true;
+                dataGridViewContatos.Columns.Add(colunaBotao);
             }
         }
 
@@ -151,7 +190,7 @@ namespace Teste
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Lógica a ser executada durante o carregamento do formulário, se necessário
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
