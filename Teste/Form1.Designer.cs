@@ -11,8 +11,6 @@ namespace Teste
         private System.Windows.Forms.Label labelCadastroEmail;
         private System.Windows.Forms.Label labelListaContatos;
         private System.Windows.Forms.Button buttonAdicionar;
-        private System.Windows.Forms.Button buttonEditar;
-        private System.Windows.Forms.Button buttonExcluir;
         private System.Windows.Forms.Button buttonFiltrar;
 
         private System.Windows.Forms.Label labelLog;
@@ -20,17 +18,13 @@ namespace Teste
         private void InitializeComponent()
         {
             this.dataGridViewContatos = new System.Windows.Forms.DataGridView();
-            //
             dataGridViewContatos.CellContentClick += dataGridViewContatos_CellContentClick;
-
             this.textBoxCadastroNome = new System.Windows.Forms.TextBox();
             this.textBoxCadastroEmail = new System.Windows.Forms.TextBox();
             this.buttonAdicionar = new System.Windows.Forms.Button();
             this.labelListaContatos = new System.Windows.Forms.Label();
             this.labelCadastroNome = new System.Windows.Forms.Label();
             this.labelCadastroEmail = new System.Windows.Forms.Label();
-            this.buttonEditar = new System.Windows.Forms.Button();
-            this.buttonExcluir = new System.Windows.Forms.Button();
             this.buttonFiltrar = new System.Windows.Forms.Button();
             this.labelLog = new System.Windows.Forms.Label();
             this.labelCadastro = new System.Windows.Forms.Label();
@@ -98,26 +92,6 @@ namespace Teste
             this.labelCadastroEmail.TabIndex = 5;
             this.labelCadastroEmail.Text = "E-mail";
             // 
-            // buttonEditar
-            // 
-            this.buttonEditar.Location = new System.Drawing.Point(474, 103);
-            this.buttonEditar.Name = "buttonEditar";
-            this.buttonEditar.Size = new System.Drawing.Size(75, 23);
-            this.buttonEditar.TabIndex = 9;
-            this.buttonEditar.Text = "Editar";
-            this.buttonEditar.UseVisualStyleBackColor = true;
-            this.buttonEditar.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // buttonExcluir
-            // 
-            this.buttonExcluir.Location = new System.Drawing.Point(174, 336);
-            this.buttonExcluir.Name = "buttonExcluir";
-            this.buttonExcluir.Size = new System.Drawing.Size(75, 23);
-            this.buttonExcluir.TabIndex = 10;
-            this.buttonExcluir.Text = "Excluir";
-            this.buttonExcluir.UseVisualStyleBackColor = true;
-            this.buttonExcluir.Click += new System.EventHandler(this.button3_Click);
-            // 
             // buttonFiltrar
             // 
             this.buttonFiltrar.Location = new System.Drawing.Point(97, 103);
@@ -153,8 +127,6 @@ namespace Teste
             this.Controls.Add(this.labelCadastro);
             this.Controls.Add(this.labelLog);
             this.Controls.Add(this.buttonFiltrar);
-            this.Controls.Add(this.buttonExcluir);
-            this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.textBoxCadastroEmail);
             this.Controls.Add(this.labelCadastroEmail);
             this.Controls.Add(this.labelCadastroNome);
