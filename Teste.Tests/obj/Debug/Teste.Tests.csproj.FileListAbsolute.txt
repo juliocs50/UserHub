@@ -1,0 +1,17 @@
+C:\Users\Julio\source\repos\Teste\Teste.Tests\obj\Debug\Teste.Tests.csproj.AssemblyReference.cache
+C:\Users\Julio\source\repos\Teste\Teste.Tests\obj\Debug\Teste.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Julio\source\repos\Teste\Teste.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Julio\source\repos\Teste\Teste.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Julio\source\repos\Teste\Teste.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Julio\source\repos\Teste\Teste.Tests\bin\Debug\Teste.Tests.dll
+C:\Users\Julio\source\repos\Teste\Teste.Tests\bin\Debug\Teste.Tests.pdb
+C:\Users\Julio\source\repos\Teste\Teste.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Julio\source\repos\Teste\Teste.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Julio\source\repos\Teste\Teste.Tests\bin\Debug\Teste.exe
+C:\Users\Julio\source\repos\Teste\Teste.Tests\bin\Debug\Teste.pdb
+C:\Users\Julio\source\repos\Teste\Teste.Tests\bin\Debug\Teste.exe.config
+C:\Users\Julio\source\repos\Teste\Teste.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Julio\source\repos\Teste\Teste.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Julio\source\repos\Teste\Teste.Tests\obj\Debug\Teste.Tests.csproj.CopyComplete
+C:\Users\Julio\source\repos\Teste\Teste.Tests\obj\Debug\Teste.Tests.dll
+C:\Users\Julio\source\repos\Teste\Teste.Tests\obj\Debug\Teste.Tests.pdb

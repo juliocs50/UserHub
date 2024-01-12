@@ -200,11 +200,11 @@ namespace Teste
             }
         }
 
-        private bool ApenasLetras(string str)
+        public bool ApenasLetras(string str)
         {
             return !string.IsNullOrEmpty(str) && str.All(c => char.IsLetter(c) || char.IsWhiteSpace(c));
         }
-        private static bool EmailValido(string email)
+        public bool EmailValido(string email)
         {
             string regex = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
 
