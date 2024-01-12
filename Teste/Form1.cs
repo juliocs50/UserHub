@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Teste
@@ -76,7 +77,7 @@ namespace Teste
                     string email = Convert.ToString(dataGridViewContatos.Rows[e.RowIndex].Cells["Email"].Value);
                     DateTime dataCadastro = Convert.ToDateTime(dataGridViewContatos.Rows[e.RowIndex].Cells["DataCadastro"].Value);
 
-                    if (ApenasLetras(nome))
+                    if (ApenasLetras(nome) && EmailValido(email))
                     {
                         EditarContato(id, nome, email, dataCadastro);
                         labelLog.Text = $"Contato ID {id} editado com sucesso.";
@@ -84,7 +85,7 @@ namespace Teste
                     }
                     else
                     {
-                        labelLog.Text = "O nome deve conter apenas letras.";
+                        labelLog.Text = !ApenasLetras(nome) ? "O nome deve conter apenas letras." : "O email não é válido.";
                         labelLog.ForeColor = Color.Red;
                         CarregarContatos();
                     }
@@ -129,7 +130,7 @@ namespace Teste
         {
             try
             {
-                if (ApenasLetras(nome))
+                if (ApenasLetras(nome) && EmailValido(email))
                 {
                     using (SqlConnection conexao = new SqlConnection(connectionString))
                     {
@@ -163,7 +164,7 @@ namespace Teste
                 }
                 else
                 {
-                    labelLog.Text = "O nome deve conter apenas letras.";
+                    labelLog.Text = !ApenasLetras(nome) ? "O nome deve conter apenas letras." : "O email não é válido.";
                     labelLog.ForeColor = Color.Red;
 
                     Timer timer = new Timer();
@@ -202,6 +203,12 @@ namespace Teste
         private bool ApenasLetras(string str)
         {
             return !string.IsNullOrEmpty(str) && str.All(c => char.IsLetter(c) || char.IsWhiteSpace(c));
+        }
+        private static bool EmailValido(string email)
+        {
+            string regex = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+
+            return Regex.IsMatch(email, regex, RegexOptions.IgnoreCase);
         }
 
         private void EditarContato(int id, string nome, string email, DateTime dataCadastro)
