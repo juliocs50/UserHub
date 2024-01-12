@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Teste
@@ -14,16 +15,20 @@ namespace Teste
         {
             InitializeComponent();
             InicializarDataGridView();
+            dataGridViewContatos.CellContentClick += dataGridViewContatos_CellContentClick;
             CarregarContatos();
         }
 
         private void InicializarDataGridView()
         {
+
             dataGridViewContatos.ColumnCount = 4;
             dataGridViewContatos.Columns[0].Name = "ID";
             dataGridViewContatos.Columns[1].Name = "Nome";
             dataGridViewContatos.Columns[2].Name = "Email";
             dataGridViewContatos.Columns[3].Name = "DataCadastro";
+            dataGridViewContatos.AllowUserToAddRows = false;
+
         }
 
         private void CarregarContatos()
@@ -38,12 +43,12 @@ namespace Teste
 
                     using (SqlDataReader reader = comando.ExecuteReader())
                     {
-                        
+
                         dataGridViewContatos.Rows.Clear();
-                        
+
                         AdicionarColuna("Editar");
                         AdicionarColuna("Excluir");
-                        
+
                         while (reader.Read())
                         {
                             dataGridViewContatos.Rows.Add(reader["ID"], reader["Nome"], reader["Email"], reader["DataCadastro"]);
@@ -171,41 +176,138 @@ namespace Teste
             AdicionarContato(textBoxCadastroNome.Text, textBoxCadastroEmail.Text, DateTime.Now);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) { }
+
+        private void button3_Click(object sender, EventArgs e) { }
+
+        private void Form1_Load(object sender, EventArgs e) { }
+
+
+        private void button4_Click(object sender, EventArgs e) { }
+
+
+        private void textBox2_TextChanged(object sender, EventArgs e) { }
+
+
+        private void textBox1_TextChanged(object sender, EventArgs e) { }
+
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            if (dataGridViewContatos.SelectedRows.Count > 0)
+            DateTime dataInicio = dateTimePicker1.Value;
+            DateTime dataFim = dateTimePicker2.Value;
+
+            string consultaSQL = "SELECT * FROM Contatos WHERE DataCadastro BETWEEN @DataInicio AND @DataFim";
+
+            using (SqlConnection conexao = new SqlConnection(connectionString))
             {
-                int id = Convert.ToInt32(dataGridViewContatos.SelectedRows[0].Cells["ID"].Value);
-                EditarContato(id, textBoxCadastroNome.Text, textBoxCadastroEmail.Text, DateTime.Now);
+                using (SqlCommand comando = new SqlCommand(consultaSQL, conexao))
+                {
+                    comando.Parameters.AddWithValue("@DataInicio", dataInicio);
+                    comando.Parameters.AddWithValue("@DataFim", dataFim);
+
+                    try
+                    {
+                        conexao.Open();
+                        SqlDataReader reader = comando.ExecuteReader();
+                        dataGridViewContatos.Rows.Clear();
+
+                        AdicionarColuna("Editar");
+                        AdicionarColuna("Excluir");
+
+                        while (reader.Read())
+                        {
+
+                            dataGridViewContatos.Rows.Add(reader["ID"], reader["Nome"], reader["Email"], reader["DataCadastro"]);
+                        }
+
+                        reader.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao executar a consulta: " + ex.Message);
+                    }
+                }
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void textBox2_TextChanged_1(object sender, EventArgs e) { }
+
+
+        private void button3_Click_1(object sender, EventArgs e)
         {
-            if (dataGridViewContatos.SelectedRows.Count > 0)
+            string nome = textBox2.Text;
+
+
+            string consultaSQL = "SELECT * FROM Contatos WHERE Nome = @Nome";
+
+            using (SqlConnection conexao = new SqlConnection(connectionString))
             {
-                int id = Convert.ToInt32(dataGridViewContatos.SelectedRows[0].Cells["ID"].Value);
-                ExcluirContato(id);
+                using (SqlCommand comando = new SqlCommand(consultaSQL, conexao))
+                {
+                    comando.Parameters.AddWithValue("@Nome", nome);
+
+                    try
+                    {
+                        conexao.Open();
+                        SqlDataReader reader = comando.ExecuteReader();
+                        dataGridViewContatos.Rows.Clear();
+
+                        AdicionarColuna("Editar");
+                        AdicionarColuna("Excluir");
+
+                        while (reader.Read())
+                        {
+
+                            dataGridViewContatos.Rows.Add(reader["ID"], reader["Nome"], reader["Email"], reader["DataCadastro"]);
+                        }
+
+                        reader.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao executar a consulta: " + ex.Message);
+                    }
+                }
             }
         }
-        private void Form1_Load(object sender, EventArgs e)
+
+        private void button2_Click_1(object sender, EventArgs e)
         {
-            
-        }
+            string email = textBox1.Text;
 
-        private void button4_Click(object sender, EventArgs e)
-        {
 
-        }
+            string consultaSQL = "SELECT * FROM Contatos WHERE Email = @Email";
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
+            using (SqlConnection conexao = new SqlConnection(connectionString))
+            {
+                using (SqlCommand comando = new SqlCommand(consultaSQL, conexao))
+                {
+                    comando.Parameters.AddWithValue("@Email", email);
 
-        }
+                    try
+                    {
+                        conexao.Open();
+                        SqlDataReader reader = comando.ExecuteReader();
+                        dataGridViewContatos.Rows.Clear();
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+                        AdicionarColuna("Editar");
+                        AdicionarColuna("Excluir");
 
+                        while (reader.Read())
+                        {
+
+                            dataGridViewContatos.Rows.Add(reader["ID"], reader["Nome"], reader["Email"], reader["DataCadastro"]);
+                        }
+
+                        reader.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao executar a consulta: " + ex.Message);
+                    }
+                }
+            }
         }
     }
 }
