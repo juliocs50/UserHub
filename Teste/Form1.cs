@@ -3,6 +3,8 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Teste
@@ -74,16 +76,42 @@ namespace Teste
                     string email = Convert.ToString(dataGridViewContatos.Rows[e.RowIndex].Cells["Email"].Value);
                     DateTime dataCadastro = Convert.ToDateTime(dataGridViewContatos.Rows[e.RowIndex].Cells["DataCadastro"].Value);
 
-                    EditarContato(id, nome, email, dataCadastro);
+                    if (ApenasLetras(nome))
+                    {
+                        EditarContato(id, nome, email, dataCadastro);
+                        labelLog.Text = $"Contato ID {id} editado com sucesso.";
+                        labelLog.ForeColor = Color.Green;
+                    }
+                    else
+                    {
+                        labelLog.Text = "O nome deve conter apenas letras.";
+                        labelLog.ForeColor = Color.Red;
+                        CarregarContatos();
+                    }
                 }
                 else if (columnName == "Excluir")
                 {
                     int id = Convert.ToInt32(dataGridViewContatos.Rows[e.RowIndex].Cells["ID"].Value);
                     ExcluirContato(id);
+
+                    labelLog.Text = $"Contato ID {id} excluído com sucesso.";
+                    labelLog.ForeColor = Color.Green;
                 }
+
+
+                Timer timer = new Timer();
+                timer.Interval = 2000;
+                timer.Tick += (timerSender, evt) =>
+                {
+                    labelLog.Text = string.Empty;
+                    labelLog.ForeColor = SystemColors.ControlText;
+                    timer.Stop();
+                    timer.Dispose();
+                };
+
+                timer.Start();
             }
         }
-
         private void AdicionarColuna(string nomeBotao)
         {
             if (!dataGridViewContatos.Columns.Contains(nomeBotao))
@@ -101,25 +129,79 @@ namespace Teste
         {
             try
             {
-                using (SqlConnection conexao = new SqlConnection(connectionString))
+                if (ApenasLetras(nome))
                 {
-                    conexao.Open();
-                    string query = "INSERT INTO Contatos (Nome, Email, DataCadastro) VALUES (@Nome, @Email, @DataCadastro)";
-                    SqlCommand comando = new SqlCommand(query, conexao);
+                    using (SqlConnection conexao = new SqlConnection(connectionString))
+                    {
+                        conexao.Open();
+                        string query = "INSERT INTO Contatos (Nome, Email, DataCadastro) VALUES (@Nome, @Email, @DataCadastro)";
+                        SqlCommand comando = new SqlCommand(query, conexao);
 
-                    comando.Parameters.AddWithValue("@Nome", nome);
-                    comando.Parameters.AddWithValue("@Email", email);
-                    comando.Parameters.AddWithValue("@DataCadastro", dataCadastro);
+                        comando.Parameters.AddWithValue("@Nome", nome);
+                        comando.Parameters.AddWithValue("@Email", email);
+                        comando.Parameters.AddWithValue("@DataCadastro", dataCadastro);
 
-                    comando.ExecuteNonQuery();
+                        comando.ExecuteNonQuery();
+                    }
+
+                    labelLog.Text = "Contato adicionado com sucesso.";
+                    labelLog.ForeColor = Color.Green;
+
+
+                    Timer timer = new Timer();
+                    timer.Interval = 2000;
+                    timer.Tick += (sender, e) =>
+                    {
+                        labelLog.Text = string.Empty;
+                        labelLog.ForeColor = SystemColors.ControlText;
+                        timer.Stop();
+                        timer.Dispose();
+                    };
+
+                    timer.Start();
+                    CarregarContatos();
                 }
+                else
+                {
+                    labelLog.Text = "O nome deve conter apenas letras.";
+                    labelLog.ForeColor = Color.Red;
 
-                CarregarContatos();
+                    Timer timer = new Timer();
+                    timer.Interval = 2000;
+                    timer.Tick += (sender, e) =>
+                    {
+                        labelLog.Text = string.Empty;
+                        labelLog.ForeColor = SystemColors.ControlText;
+                        timer.Stop();
+                        timer.Dispose();
+                    };
+
+                    timer.Start();
+                }
             }
             catch (Exception ex)
             {
                 labelLog.Text = $"Erro ao adicionar contato: {ex.Message}";
+                labelLog.ForeColor = Color.Red;
+
+
+                Timer timer = new Timer();
+                timer.Interval = 2000;
+                timer.Tick += (sender, e) =>
+                {
+                    labelLog.Text = string.Empty;
+                    labelLog.ForeColor = SystemColors.ControlText;
+                    timer.Stop();
+                    timer.Dispose();
+                };
+
+                timer.Start();
             }
+        }
+
+        private bool ApenasLetras(string str)
+        {
+            return !string.IsNullOrEmpty(str) && str.All(c => char.IsLetter(c) || char.IsWhiteSpace(c));
         }
 
         private void EditarContato(int id, string nome, string email, DateTime dataCadastro)

@@ -101,7 +101,7 @@ namespace Teste
             // labelLog
             // 
             this.labelLog.AutoSize = true;
-            this.labelLog.Location = new System.Drawing.Point(313, 366);
+            this.labelLog.Location = new System.Drawing.Point(174, 111);
             this.labelLog.Name = "labelLog";
             this.labelLog.Size = new System.Drawing.Size(0, 13);
             this.labelLog.TabIndex = 12;
